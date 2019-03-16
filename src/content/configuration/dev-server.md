@@ -476,7 +476,7 @@ webpack-dev-server --hot-only
 
 `boolean` `object`
 
-By default dev-server will be served over HTTP. It can optionally be served with HTTPS (Use [`devServer.spdy`](spdy) option to serve over HTTP/2):
+By default dev-server will be served over HTTP. It can optionally be served with HTTPS (Use [`devServer.spdy`](#devserverspdy) option to serve over HTTP/2):
 
 __webpack.config.js__
 
@@ -520,7 +520,7 @@ To pass your own certificate via the CLI use the following options
 webpack-dev-server --https --key /path/to/server.key --cert /path/to/server.crt --cacert /path/to/ca.pem
 ```
 
-## `devServer.spdy` (alias: devServer.http2)
+## `devServer.spdy` (alias: `devServer.http2`)
 
 `boolean`
 

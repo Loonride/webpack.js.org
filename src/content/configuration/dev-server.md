@@ -520,9 +520,9 @@ To pass your own certificate via the CLI use the following options
 webpack-dev-server --https --key /path/to/server.key --cert /path/to/server.crt --cacert /path/to/ca.pem
 ```
 
-## `devServer.spdy` (alias: `devServer.http2`)
+## `devServer.spdy`
 
-`boolean`
+`boolean` (alias: `devServer.http2`)
 
 When HTTPS is enabled, uses [spdy](https://www.npmjs.com/package/spdy) to serve over HTTP/2. This option is ignored for Node 10.0.0 and above, as spdy is broken for those versions. The dev server will migrate over to Node's built-in HTTP/2 once Express supports it.
 

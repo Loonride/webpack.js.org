@@ -472,11 +472,36 @@ webpack-dev-server --hot-only
 ```
 
 
+## `devServer.http2`
+
+`boolean`
+
+HTTPS must be enabled to use this option. It uses [spdy](https://www.npmjs.com/package/spdy) to serve over HTTP/2. This option is ignored for Node 10.0.0 and above, as spdy is broken for those versions. The dev server will migrate over to Node's built-in HTTP/2 once Express supports it.
+
+__webpack.config.js__
+
+```javascript
+module.exports = {
+  //...
+  devServer: {
+    https: true,
+    http2: true
+  }
+};
+```
+
+Usage via the CLI
+
+```bash
+webpack-dev-server --https --http2
+```
+
+
 ## `devServer.https`
 
 `boolean` `object`
 
-By default dev-server will be served over HTTP. It can optionally be served with HTTPS (Use [`devServer.spdy`](#devserverspdy) option to serve over HTTP/2):
+By default dev-server will be served over HTTP. It can optionally be served with HTTPS (Use [`devServer.http2`](#devserverhttp2) option to serve over HTTP/2):
 
 __webpack.config.js__
 
@@ -1099,69 +1124,6 @@ Usage via the CLI
 
 ```bash
 webpack-dev-server --socket socket
-```
-
-
-## `devServer.spdy`
-
-`boolean` (alias: `devServer.http2`)
-
-When HTTPS is enabled, uses [spdy](https://www.npmjs.com/package/spdy) to serve over HTTP/2. This option is ignored for Node 10.0.0 and above, as spdy is broken for those versions. The dev server will migrate over to Node's built-in HTTP/2 once Express supports it.
-
-__webpack.config.js__
-
-```javascript
-module.exports = {
-  //...
-  devServer: {
-    https: true,
-    spdy: true
-  }
-};
-```
-
-Provide your own custom spdy options (passed directly into `spdy.createServer`, see [spdy](https://www.npmjs.com/package/spdy) for more information):
-
-__webpack.config.js__
-
-```javascript
-module.exports = {
-  //...
-  devServer: {
-    https: {
-      spdy: {
-        protocols: ['http/1.1']
-      }
-    },
-    spdy: true
-  }
-};
-```
-
-Use the `http2` alias:
-
-__webpack.config.js__
-
-```javascript
-module.exports = {
-  //...
-  devServer: {
-    https: true,
-    http2: true
-  }
-};
-```
-
-Usage via the CLI
-
-```bash
-webpack-dev-server --https --spdy
-```
-
-Or using alias:
-
-```bash
-webpack-dev-server --https --http2
 ```
 
 
